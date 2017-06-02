@@ -1,12 +1,67 @@
 {
   "name": "resolve-boilerplate",
-  "version": "0.0.1",
-  "engines": {
-    "node": "^6.0.0",
-    "npm": "^3.0.0"
-  },
-  "license": "MIT",
-  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
+    "dev": "nodemon -w server -w resolve --exec \"babel-node ./server\"",
+    "build:client": "next build",
+    "build:server": "webpack --config webpack.server.config.js",
+    "build:static": "cp -r ./static ./.next/dist/static",
+    "build": "npm run build:client && npm run build:static && npm run build:server",
+    "start": "node .next/dist/server/server.js",
+    "prestart": "npm run -s build",
+    "lint": "eslint ./",
+    "lint:fix": "eslint ./ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VadimKhoroshiltsev/resolve-boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate/issues"
+  },
+  "homepage": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate#readme",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.2",
+    "express": "^4.15.3",
+    "next": "^2.4.0",
+    "next-redux-wrapper": "^1.1.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.15.3",
+    "resolve-bus": "^0.0.1",
+    "resolve-bus-memory": "^0.0.1",
+    "resolve-command": "^0.0.1",
+    "resolve-es": "^0.0.1",
+    "resolve-es-file": "^0.0.1",
+    "resolve-query": "^0.0.1",
+    "resolve-redux": "^0.0.1",
+    "seamless-immutable": "^7.1.2",
+    "socket.io": "^2.0.1",
+    "socket.io-client": "^2.0.1",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "3.19.0",
+    "eslint-config-react-app": "^1.0.4",
+    "eslint-plugin-flowtype": "2.33.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-react": "7.0.1",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.6.1",
+    "webpack-node-externals": "^1.6.0"
   }
 }

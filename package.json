@@ -1,0 +1,12 @@
+{
+  "name": "resolve-boilerplate",
+  "version": "0.0.1",
+  "engines": {
+    "node": "^6.0.0",
+    "npm": "^3.0.0"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+  }
+}

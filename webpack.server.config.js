@@ -4,7 +4,7 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = env => {
   return {
     entry: {
-      server: './server/index.js'
+      server: ['regenerator-runtime/runtime', './server/index.js']
     },
     target:'node',
     externals: [nodeExternals()],

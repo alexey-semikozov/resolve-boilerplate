@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=7.10.0"
+  },
   "scripts": {
     "dev": "nodemon -w server -w resolve --exec \"babel-node ./server\"",
     "build:client": "next build",
@@ -26,6 +29,8 @@
   },
   "homepage": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate#readme",
   "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.2",
     "express": "^4.15.3",

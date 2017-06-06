@@ -4378,7 +4378,7 @@ regenerate@^1.2.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.3.2.tgz#d1941c67bad437e1be76433add5b385f95b19260"
 
-regenerator-runtime@^0.10.0:
+regenerator-runtime@*, regenerator-runtime@^0.10.0:
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.5.tgz#336c3efc1220adcedda2c9fab67b5a7955a33658"
 
@@ -4495,39 +4495,40 @@ require-uncached@^1.0.2:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
 
-resolve-bus-memory@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-bus-memory/-/resolve-bus-memory-0.0.1.tgz#e733ac13810104a73063d9ad04dc5653032d0839"
+resolve-bus-memory@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-bus-memory/-/resolve-bus-memory-0.0.2.tgz#1876416d7c2ef10f40ac955ea79af4ca3249d5c8"
 
-resolve-bus@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-bus/-/resolve-bus-0.0.1.tgz#ed6b2bff2313b28076a55dfb3c64834255038e3a"
+resolve-bus@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-bus/-/resolve-bus-0.0.2.tgz#c99ef06c3ccfec9e6ba12c39f76fbd8a269153d0"
 
-resolve-command@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-command/-/resolve-command-0.0.1.tgz#a66f511ee3023ff12293d60c24403b1b0400374e"
+resolve-command@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-command/-/resolve-command-0.0.2.tgz#8db8bcd4fc33ed373817b2147025105a9723e1a4"
 
-resolve-es-file@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-es-file/-/resolve-es-file-0.0.1.tgz#b6bace411522e0fb56e6f8f956ddd34002b2cfa4"
+resolve-es-file@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-es-file/-/resolve-es-file-0.0.2.tgz#ab9ea7a68023e9a821905b06b80e71c87322fea5"
 
-resolve-es@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-es/-/resolve-es-0.0.1.tgz#b7c705e81c22b5b1f796c58ae2ce2636e870b62e"
+resolve-es@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-es/-/resolve-es-0.0.2.tgz#36d3e451404d22bf54f0402cd27d200a40d12a33"
 
 resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
 
-resolve-query@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-query/-/resolve-query-0.0.1.tgz#74146a2fc5caf06eddb9450d5cecfffbe02a42ee"
+resolve-query@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-query/-/resolve-query-0.0.2.tgz#72ccc6bdd3acad93770750c308f4e9a86f914f95"
 
-resolve-redux@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/resolve-redux/-/resolve-redux-0.0.1.tgz#0135c13540527a48270b2bf99d70b427db66a202"
+resolve-redux@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/resolve-redux/-/resolve-redux-0.0.2.tgz#8eb21122b2f3c34d3b5ac94e29b16759c09cf8fc"
   dependencies:
     redux-saga "^0.15.3"
+    regenerator-runtime "*"
 
 resolve@^1.1.6, resolve@^1.3.2:
   version "1.3.3"
@@ -5252,6 +5253,10 @@ webpack-hot-middleware@2.18.0:
     html-entities "^1.2.0"
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
+
+webpack-node-externals@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.6.0.tgz#232c62ec6092b100635a3d29d83c1747128df9bd"
 
 webpack-sources@^0.2.3:
   version "0.2.3"

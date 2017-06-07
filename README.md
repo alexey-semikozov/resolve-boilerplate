@@ -1,4 +1,4 @@
-# resolve-boilerplate
+# Resolve boilerplate
 
 Resolve boilerplate is a template based on nextjs and resolve.
 

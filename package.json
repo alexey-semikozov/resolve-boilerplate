@@ -15,7 +15,8 @@
     "start": "node .next/dist/server/server.js",
     "prestart": "npm run -s build",
     "lint": "eslint ./",
-    "lint:fix": "eslint ./ --fix"
+    "lint:fix": "eslint ./ --fix",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -65,7 +66,10 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.0.1",
+    "jest": "^20.0.4",
     "nodemon": "^1.11.0",
+    "react-test-renderer": "^15.5.4",
+    "sinon": "^2.3.2",
     "webpack": "^2.6.1",
     "webpack-node-externals": "^1.6.0"
   }

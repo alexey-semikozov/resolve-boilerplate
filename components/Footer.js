@@ -24,7 +24,7 @@ function renderTodoCount(activeCount) {
   );
 }
 
-function renderFilterLink({ filter, selectedFilter, onShow }) {
+function renderFilterLink({ filter, selectedFilter }) {
   return (
     <Link href={`/?filter=${filter}`} as={`/${filter}`}>
       <a
@@ -56,8 +56,7 @@ function Footer(props) {
           <li key={filter}>
             {renderFilterLink({
               filter,
-              selectedFilter: props.filter,
-              onShow: props.onShow
+              selectedFilter: props.filter
             })}
           </li>
         ))}

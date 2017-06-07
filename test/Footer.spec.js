@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRenderer } from 'react-test-renderer/shallow';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 import { SHOW_ALL, SHOW_ACTIVE } from '../constants/TodoFilters';
 
 const setup = propOverrides => {
@@ -67,7 +67,8 @@ describe('components', () => {
       expect(filters.props.children.length).toBe(3);
       filters.props.children.forEach(function checkFilter(filter, i) {
         expect(filter.type).toBe('li');
-        const a = filter.props.children;
+        const linkWrap = filter.props.children;
+        const a = linkWrap.props.children;
         expect(a.props.className).toBe(i === 0 ? 'selected' : '');
         expect(a.props.children).toBe(
           {
@@ -77,14 +78,6 @@ describe('components', () => {
           }[i]
         );
       });
-    });
-
-    it('should call onShow when a filter is clicked', () => {
-      const { output, props } = setup();
-      const [, filters] = output.props.children;
-      const filterLink = filters.props.children[1].props.children;
-      filterLink.props.onClick({});
-      expect(props.onShow).toBeCalledWith(SHOW_ACTIVE);
     });
 
     it('shouldnt show clear button when no completed todos', () => {

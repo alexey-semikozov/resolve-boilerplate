@@ -1,12 +1,12 @@
 import React from 'react';
 import { createRenderer } from 'react-test-renderer/shallow';
-import TodoItem from './TodoItem';
-import TodoTextInput from './TodoTextInput';
+import TodoItem from '../components/TodoItem';
+import TodoTextInput from '../components/TodoTextInput';
 
 const setup = (editing = false) => {
   const props = {
     todo: {
-      id: 0,
+      aggregateId: 0,
       text: 'Use Redux',
       completed: false
     },

@@ -2,23 +2,23 @@ export default {
   name: 'Todo',
   initialState: () => {},
   commands: {
-    ADD_TODO: (state, { payload }) => ({
+    addTodo: (state, { payload }) => ({
       type: 'TodoAdded',
       payload: {
         completed: false,
         text: payload.text
       }
     }),
-    DELETE_TODO: () => ({
+    deleteTodo: () => ({
       type: 'TodoDeleted'
     }),
-    EDIT_TODO: (state, { payload }) => ({
+    editTodo: (state, { payload }) => ({
       type: 'TodoEdited',
       payload: {
         text: payload.text
       }
     }),
-    COMPLETE_TODO: state => ({
+    completeTodo: state => ({
       type: 'TodoCompleted',
       payload: {
         completed: true

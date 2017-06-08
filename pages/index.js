@@ -2,10 +2,12 @@ import Head from 'next/head';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+import { createActions } from 'resolve-redux';
 import makeStore from '../redux/store';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../redux/actions';
+import TodoAggregate from '../resolve/aggregates';
 import {
   SHOW_ALL,
   SHOW_COMPLETED,
@@ -49,9 +51,10 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(TodoActions, dispatch)
+  actions: bindActionCreators(
+    createActions(TodoAggregate, TodoActions),
+    dispatch
+  )
 });
 
-export default nextRedux(makeStore, mapStateToProps, mapDispatchToProps)(
-  App
-);
+export default nextRedux(makeStore, mapStateToProps, mapDispatchToProps)(App);

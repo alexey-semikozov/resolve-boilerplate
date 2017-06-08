@@ -1,10 +1,9 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
-import { deleteTodo, completeTodo } from '../actions';
-import {
-  COMPLETE_ALL,
-  CLEAR_COMPLETED
-} from '../ActionTypes';
+import { createActions } from 'resolve-redux';
+import todoAggregate from '../../resolve/aggregates';
+import { COMPLETE_ALL, CLEAR_COMPLETED } from '../ActionTypes';
 
+const actions = createActions(todoAggregate);
 
 function* handleCompleteAll() {
   const tasks = yield select(state => state.todos);
@@ -15,7 +14,7 @@ function* handleCompleteAll() {
 
   for (let task of tasks) {
     if (!(isAllCompleted ^ task.completed))
-      yield put(completeTodo(task.aggregateId));
+      yield put(actions.completeTodo(task.aggregateId));
   }
 }
 
@@ -25,7 +24,7 @@ function* handleClearCompleted() {
   );
 
   for (let task of completedTasks) {
-    yield put(deleteTodo(task.aggregateId));
+    yield put(actions.deleteTodo(task.aggregateId));
   }
 }
 

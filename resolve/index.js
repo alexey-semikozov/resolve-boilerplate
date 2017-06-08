@@ -1,28 +1,29 @@
-import createStore from 'resolve-es';
-import esDriver from 'resolve-es-file';
+import createEventStore from 'resolve-es';
+import createStorage from 'resolve-storage';
+import storageDriver from 'resolve-storage-file';
 import createBus from 'resolve-bus';
 import busDriver from 'resolve-bus-memory';
 import commandHandler from 'resolve-command';
 import query from 'resolve-query';
 
-import todoAggregate from './aggregates';
+import todosAggregate from './aggregates';
 import todosProjection from './projections';
 
-const eventStore = createStore({
-  driver: esDriver({ pathToFile: './db.json' })
+const storage = createStorage({
+  driver: storageDriver({ pathToFile: './db.json' })
 });
 
 const bus = createBus({ driver: busDriver() });
 
+const eventStore = createEventStore({ storage, bus });
+
 const execute = commandHandler({
-  store: eventStore,
-  bus,
-  aggregates: [todoAggregate]
+  eventStore,
+  aggregates: [todosAggregate]
 });
 
 const queries = query({
-  store: eventStore,
-  bus,
+  eventStore,
   projections: [todosProjection]
 });
 

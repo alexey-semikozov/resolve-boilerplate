@@ -16,7 +16,8 @@
     "prestart": "npm run -s build",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "test": "jest"
+    "test": "jest",
+    "testcafe": "node ./testcafe_runner.js"
   },
   "repository": {
     "type": "git",
@@ -71,6 +72,8 @@
     "nodemon": "^1.11.0",
     "react-test-renderer": "^15.5.4",
     "sinon": "^2.3.2",
+    "testcafe": "^0.15.0",
+    "testcafe-browser-tools": "^1.2.1",
     "webpack": "^2.6.1",
     "webpack-node-externals": "^1.6.0"
   }

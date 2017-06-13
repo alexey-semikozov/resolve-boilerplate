@@ -13,7 +13,7 @@ import {
   SHOW_COMPLETED,
   SHOW_ACTIVE
 } from '../constants/TodoFilters';
-import nextRedux from './next-redux';
+import nextRedux from '../redux/next-redux';
 
 const App = props => {
   const { todos, filter, actions } = props;

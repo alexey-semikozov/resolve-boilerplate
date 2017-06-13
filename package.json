@@ -19,6 +19,9 @@
     "test": "jest",
     "testcafe": "node ./testcafe_runner.js"
   },
+  "jest": {
+    "roots": ["test"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VadimKhoroshiltsev/resolve-boilerplate.git"

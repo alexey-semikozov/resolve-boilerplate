@@ -83,11 +83,12 @@ test('base functionality', async (t) => {
     }
 
     /* Delete items */ {
-        await t.hover(Selector('.todo-list li').nth(0));
+        const item = Selector('.todo-list li').nth(0);
+        await t.hover(item);
         await t.click(Selector('.todo-list .destroy').nth(0));
         expect(await Selector('.todo-list li').count).to.be.equal(1);
 
-        await t.hover(Selector('.todo-list li').nth(0));
+        await t.hover(item);
         await t.click(Selector('.todo-list .destroy').nth(0));
         expect(await Selector('.todo-list li').count).to.be.equal(0);
     }

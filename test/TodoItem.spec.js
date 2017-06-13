@@ -97,7 +97,7 @@ describe('components', () => {
     it('TodoTextInput onSave should call editTodo', () => {
       const { output, props } = setup(true);
       output.props.children.props.onSave('Use Redux');
-      expect(props.editTodo).toBeCalledWith(0, 'Use Redux');
+      expect(props.editTodo).toBeCalledWith(0, {'text': 'Use Redux'});
     });
 
     it('TodoTextInput onSave should call deleteTodo if text is empty', () => {

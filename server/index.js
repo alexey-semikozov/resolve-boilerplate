@@ -20,8 +20,8 @@ app
     const io = socketIO(server);
 
     express.use(createExpress.static('static'));
-    express.use(bodyParser.json())
-    express.use(bodyParser.urlencoded({ extended: true }))
+    express.use(bodyParser.json());
+    express.use(bodyParser.urlencoded({ extended: true }));
 
     express.get('/:filter?', (req, res) => {
       const actualPage = '/';
@@ -36,7 +36,8 @@ app
     express.get('*', (req, res) => handle(req, res));
 
     express.post('/api/commands', (req, res) => {
-      resolve.execute(req.body)
+      resolve
+        .execute(req.body)
         .then(() => res.status(200).send('ok'))
         .catch(err => {
           console.log(err);
@@ -56,7 +57,7 @@ app
     });
 
     server.on('listening', () => {
-      console.log('Example app listening on port 3000!');
+      console.log('> Ready on http://localhost:3000');
     });
 
     server.listen(3000);

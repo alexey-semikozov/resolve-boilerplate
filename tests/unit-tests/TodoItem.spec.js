@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRenderer } from 'react-test-renderer/shallow';
-import TodoItem from '../components/TodoItem';
-import TodoTextInput from '../components/TodoTextInput';
+import TodoItem from '../../components/TodoItem';
+import TodoTextInput from '../../components/TodoTextInput';
 
 const setup = (editing = false) => {
   const props = {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRenderer } from 'react-test-renderer/shallow';
-import MainSection from '../components/MainSection';
-import TodoItem from '../components/TodoItem';
-import Footer from '../components/Footer';
-import { SHOW_ALL } from '../constants/TodoFilters';
+import MainSection from '../../components/MainSection';
+import TodoItem from '../../components/TodoItem';
+import Footer from '../../components/Footer';
+import { SHOW_ALL } from '../../constants/TodoFilters';
 
 const setup = propOverrides => {
   const props = Object.assign(

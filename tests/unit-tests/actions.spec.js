@@ -1,7 +1,7 @@
 import { createActions } from 'resolve-redux';
-import * as types from '../ActionTypes';
+import * as types from '../../redux/ActionTypes';
 import TodoAggregate from '../../resolve/aggregates';
-import * as TodoActions from './index';
+import * as TodoActions from '../../redux/actions';
 
 const actions = createActions(TodoAggregate, TodoActions);
 const aggregateId = 1;

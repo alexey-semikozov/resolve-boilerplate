@@ -11,7 +11,7 @@ getInstallations()
                 const browser = Object.keys(browsers).slice(0,1);
                 return runner
                     .startApp('npm run dev')
-                    .src(['./testcafe/index.test.js'])
+                    .src(['./tests/e2e-tests/index.test.js'])
                     .browsers(browser)
                     .run();
             })

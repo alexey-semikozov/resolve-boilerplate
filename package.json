@@ -16,12 +16,12 @@
     "prestart": "npm run -s build",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "test": "jest",
-    "testcafe": "node ./testcafe_runner.js"
+    "test:unit": "jest",
+    "test:e2e": "node ./testcafe_runner.js"
   },
   "jest": {
     "roots": [
-      "test"
+      "tests/unit-tests"
     ]
   },
   "repository": {

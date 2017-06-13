@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRenderer } from 'react-test-renderer/shallow';
-import TodoTextInput from '../components/TodoTextInput';
+import TodoTextInput from '../../components/TodoTextInput';
 
 const setup = propOverrides => {
   const props = Object.assign(

@@ -20,7 +20,9 @@
     "testcafe": "node ./testcafe_runner.js"
   },
   "jest": {
-    "roots": ["test"]
+    "roots": [
+      "test"
+    ]
   },
   "repository": {
     "type": "git",
@@ -39,7 +41,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.2",
     "express": "^4.15.3",
-    "next": "^2.4.0",
+    "next": "^2.4.1",
     "next-redux-wrapper": "^1.1.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -50,10 +52,10 @@
     "resolve-bus-memory": "^0.0.3",
     "resolve-command": "^0.0.3",
     "resolve-es": "^0.0.3",
-    "resolve-storage": "^0.0.3",
-    "resolve-storage-file": "^0.0.3",
     "resolve-query": "^0.0.3",
     "resolve-redux": "^0.0.3",
+    "resolve-storage": "^0.0.3",
+    "resolve-storage-file": "^0.0.3",
     "seamless-immutable": "^7.1.2",
     "socket.io": "^2.0.1",
     "socket.io-client": "^2.0.1",

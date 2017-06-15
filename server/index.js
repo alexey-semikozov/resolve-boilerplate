@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 
 import resolve from './resolve';
 
-import projection from '../projections';
+import projections from '../projections';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -47,13 +47,18 @@ app
 
     io.on('connection', socket => {
       console.log('Socket connected');
+      const unsubscribes = projections.reduce((result, projection) => {
+        result.push(
+          resolve.subscribe(Object.keys(projection.eventHandlers), event =>
+            socket.emit('event', JSON.stringify(event))
+          )
+        );
+        return result;
+      }, []);
 
-      const unsubscribe = resolve.subscribe(
-        Object.keys(projection.eventHandlers),
-        event => socket.emit('event', JSON.stringify(event))
+      socket.on('disconnect', () =>
+        unsubscribes.forEach(unsubscribe => unsubscribe())
       );
-
-      socket.on('disconnect', () => unsubscribe());
     });
 
     server.on('listening', () => {

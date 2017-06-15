@@ -1,9 +1,9 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
 import { createActions } from 'resolve-redux';
-import todoAggregate from '../../aggregates';
+import aggregates from '../../aggregates';
 import { COMPLETE_ALL, CLEAR_COMPLETED } from '../ActionTypes';
 
-const actions = createActions(todoAggregate);
+const actions = createActions(aggregates[0]);
 
 function* handleCompleteAll() {
   const tasks = yield select(state => state.todos);

@@ -6,8 +6,8 @@ import busDriver from 'resolve-bus-memory';
 import commandHandler from 'resolve-command';
 import query from 'resolve-query';
 
-import todosAggregate from '../aggregates';
-import todosProjection from '../projections';
+import aggregates from '../aggregates';
+import projections from '../projections';
 
 const storage = createStorage({
   driver: storageDriver({ pathToFile: './db.json' })
@@ -19,12 +19,12 @@ const eventStore = createEventStore({ storage, bus });
 
 const execute = commandHandler({
   eventStore,
-  aggregates: [todosAggregate]
+  aggregates
 });
 
 const queries = query({
   eventStore,
-  projections: [todosProjection]
+  projections
 });
 
 export default {

@@ -4,9 +4,9 @@ import http from 'http';
 import socketIO from 'socket.io';
 import bodyParser from 'body-parser';
 
-import resolve from '../resolve';
+import resolve from './resolve';
 
-import projection from '../resolve/projections';
+import projection from '../projections';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });

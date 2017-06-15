@@ -26,15 +26,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VadimKhoroshiltsev/resolve-boilerplate.git"
+    "url": "git+https://github.com/reimagined/resolve-boilerplate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate/issues"
+    "url": "https://github.com/reimagined/resolve-boilerplate/issues"
   },
-  "homepage": "https://github.com/VadimKhoroshiltsev/resolve-boilerplate#readme",
+  "homepage": "https://github.com/reimagined/resolve-boilerplate#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",

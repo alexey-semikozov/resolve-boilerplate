@@ -7,7 +7,7 @@ import makeStore from '../redux/store';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 import * as TodoActions from '../redux/actions';
-import TodoAggregate from '../resolve/aggregates';
+import TodoAggregate from '../aggregates';
 import {
   SHOW_ALL,
   SHOW_COMPLETED,

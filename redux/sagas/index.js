@@ -1,6 +1,6 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
 import { createActions } from 'resolve-redux';
-import todoAggregate from '../../resolve/aggregates';
+import todoAggregate from '../../aggregates';
 import { COMPLETE_ALL, CLEAR_COMPLETED } from '../ActionTypes';
 
 const actions = createActions(todoAggregate);

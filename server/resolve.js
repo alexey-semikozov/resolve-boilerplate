@@ -6,8 +6,8 @@ import busDriver from 'resolve-bus-memory';
 import commandHandler from 'resolve-command';
 import query from 'resolve-query';
 
-import todosAggregate from './aggregates';
-import todosProjection from './projections';
+import todosAggregate from '../aggregates';
+import todosProjection from '../projections';
 
 const storage = createStorage({
   driver: storageDriver({ pathToFile: './db.json' })

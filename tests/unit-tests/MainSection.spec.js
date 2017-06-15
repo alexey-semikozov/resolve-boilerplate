@@ -1,9 +1,7 @@
 import React from 'react';
-import { createRenderer } from 'react-test-renderer/shallow';
+import ReactShallowRenderer from 'react-test-renderer/shallow';
+import renderer from 'react-test-renderer';
 import MainSection from '../../components/MainSection';
-import TodoItem from '../../components/TodoItem';
-import Footer from '../../components/Footer';
-import { SHOW_ALL } from '../../constants/TodoFilters';
 
 const setup = propOverrides => {
   const props = Object.assign(
@@ -32,35 +30,28 @@ const setup = propOverrides => {
     propOverrides
   );
 
-  const renderer = createRenderer();
-  renderer.render(<MainSection {...props} />);
-  const output = renderer.getRenderOutput();
+  const shallowrenderer = new ReactShallowRenderer();
+  shallowrenderer.render(<MainSection {...props} />);
+  const output = shallowrenderer.getRenderOutput();
+
+  const component = renderer.create(<MainSection {...props} />);
+  const tree = component.toJSON();
 
   return {
-    props: props,
-    output: output,
-    renderer: renderer
+    props,
+    output,
+    tree
   };
 };
 
 describe('components', () => {
   describe('MainSection', () => {
     it('should render container', () => {
-      const { output } = setup();
-      expect(output.type).toBe('section');
-      expect(output.props.className).toBe('main');
+      const { tree } = setup();
+      expect(tree).toMatchSnapshot();
     });
 
-    describe('toggle all input', () => {
-      it('should render', () => {
-        const { output } = setup();
-        const [toggle] = output.props.children;
-        expect(toggle.type).toBe('input');
-        expect(toggle.props.type).toBe('checkbox');
-        expect(toggle.props.checked).toBe(false);
-      });
-
-      it('should be checked if all todos completed', () => {
+    it('should be checked if all todos completed', () => {
         const { output } = setup({
           todos: [
             {
@@ -73,54 +64,5 @@ describe('components', () => {
         const [toggle] = output.props.children;
         expect(toggle.props.checked).toBe(true);
       });
-
-      it('should call completeAll on change', () => {
-        const { output, props } = setup();
-        const [toggle] = output.props.children;
-        toggle.props.onChange({});
-        expect(props.actions.completeAll).toBeCalled();
-      });
-    });
-
-    describe('footer', () => {
-      it('should render', () => {
-        const { output } = setup();
-        const [, , footer] = output.props.children;
-        expect(footer.type).toBe(Footer);
-        expect(footer.props.completedCount).toBe(1);
-        expect(footer.props.activeCount).toBe(1);
-        expect(footer.props.filter).toBe(SHOW_ALL);
-      });
-
-      it('onClearCompleted should call clearCompleted', () => {
-        const { output, props } = setup();
-        const [, , footer] = output.props.children;
-        footer.props.onClearCompleted();
-        expect(props.actions.clearCompleted).toBeCalled();
-      });
-    });
-
-    describe('todo list', () => {
-      it('should render', () => {
-        const { output, props } = setup();
-        const [, list] = output.props.children;
-        expect(list.type).toBe('ul');
-        expect(list.props.children.length).toBe(2);
-        list.props.children.forEach((item, i) => {
-          expect(item.type).toBe(TodoItem);
-          expect(item.props.todo).toBe(props.todos[i]);
-        });
-      });
-
-      it('should filter items', () => {
-        const { renderer, props } = setup({
-          filter: 'completed'
-        });
-        const updated = renderer.getRenderOutput();
-        const [, updatedList] = updated.props.children;
-        expect(updatedList.props.children.length).toBe(1);
-        expect(updatedList.props.children[0].props.todo).toBe(props.todos[1]);
-      });
-    });
   });
 });

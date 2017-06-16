@@ -61,6 +61,4 @@ typings/
 
 dist
 
-__snapshots__
-
 db.json

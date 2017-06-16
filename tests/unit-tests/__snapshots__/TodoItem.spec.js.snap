@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components TodoItem initial render 1`] = `
+<li
+  className=""
+>
+  <div
+    className="view"
+  >
+    <input
+      checked={false}
+      className="toggle"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      onDoubleClick={[Function]}
+    >
+      Use Redux
+    </label>
+    <button
+      className="destroy"
+      onClick={[Function]}
+    />
+  </div>
+</li>
+`;

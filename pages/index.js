@@ -5,13 +5,14 @@ import { bindActionCreators } from 'redux';
 import { createActions } from 'resolve-redux';
 import makeStore from '../store';
 import Header from '../components/Header';
-import MainSection from '../components/MainSection';
-import todoAggregate from '../aggregates/todo';
-import {
+
+import MainSection, {
   SHOW_ALL,
   SHOW_COMPLETED,
   SHOW_ACTIVE
-} from '../constants/TodoFilters';
+} from '../components/MainSection';
+
+import todoAggregate from '../aggregates/todo';
 import nextRedux from '../server/next-redux';
 
 const App = props => {

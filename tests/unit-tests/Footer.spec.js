@@ -2,7 +2,11 @@ import React from 'react';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import renderer from 'react-test-renderer';
 import Footer from '../../components/Footer';
-import { SHOW_ALL } from '../../constants/TodoFilters';
+import {
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_COMPLETED
+} from '../../components/MainSection';
 
 const setup = propOverrides => {
   const props = Object.assign(
@@ -11,7 +15,12 @@ const setup = propOverrides => {
       activeCount: 0,
       filter: SHOW_ALL,
       onClearCompleted: jest.fn(),
-      onShow: jest.fn()
+      onShow: jest.fn(),
+      titles: {
+        [SHOW_ALL]: 'All',
+        [SHOW_ACTIVE]: 'Active',
+        [SHOW_COMPLETED]: 'Completed'
+      }
     },
     propOverrides
   );

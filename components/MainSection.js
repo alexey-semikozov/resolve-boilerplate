@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
-import {
-  SHOW_ALL,
-  SHOW_COMPLETED,
-  SHOW_ACTIVE
-} from '../constants/TodoFilters';
+
+export const SHOW_ALL = 'all';
+export const SHOW_COMPLETED = 'completed';
+export const SHOW_ACTIVE = 'active';
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
@@ -16,6 +15,11 @@ const TODO_FILTERS = {
 
 function renderFooter(completedCount, { todos, filter, actions }) {
   const activeCount = todos.length - completedCount;
+  const titles = {
+    [SHOW_ALL]: 'All',
+    [SHOW_ACTIVE]: 'Active',
+    [SHOW_COMPLETED]: 'Completed'
+  };
 
   if (todos.length) {
     return (
@@ -23,6 +27,7 @@ function renderFooter(completedCount, { todos, filter, actions }) {
         completedCount={completedCount}
         activeCount={activeCount}
         filter={filter}
+        titles={titles}
       />
     );
   }

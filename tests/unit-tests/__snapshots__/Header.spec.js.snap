@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components Header should render correctly 1`] = `
+<header
+  className="header"
+>
+  <h1>
+    todos
+  </h1>
+  <input
+    autoFocus="true"
+    className="new-todo"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="What needs to be done?"
+    type="text"
+    value=""
+  />
+</header>
+`;

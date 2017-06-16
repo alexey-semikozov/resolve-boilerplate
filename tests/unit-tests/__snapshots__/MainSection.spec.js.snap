@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components MainSection should render container 1`] = `
+<section
+  className="main"
+>
+  <ul
+    className="todo-list"
+  >
+    <li
+      className=""
+    >
+      <div
+        className="view"
+      >
+        <input
+          checked={false}
+          className="toggle"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          onDoubleClick={[Function]}
+        >
+          Use Redux
+        </label>
+        <button
+          className="destroy"
+          onClick={[Function]}
+        />
+      </div>
+    </li>
+    <li
+      className="completed"
+    >
+      <div
+        className="view"
+      >
+        <input
+          checked={true}
+          className="toggle"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          onDoubleClick={[Function]}
+        >
+          Run the tests
+        </label>
+        <button
+          className="destroy"
+          onClick={[Function]}
+        />
+      </div>
+    </li>
+  </ul>
+  <footer
+    className="footer"
+  >
+    <span
+      className="todo-count"
+    >
+      <strong>
+        1
+      </strong>
+       
+      item
+       left
+    </span>
+    <ul
+      className="filters"
+    >
+      <li>
+        <a
+          className="selected"
+          href="/all"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          href="/active"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          Active
+        </a>
+      </li>
+      <li>
+        <a
+          className=""
+          href="/completed"
+          onClick={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+            }
+          }
+        >
+          Completed
+        </a>
+      </li>
+    </ul>
+  </footer>
+</section>
+`;

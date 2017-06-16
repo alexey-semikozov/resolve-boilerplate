@@ -1,15 +1,12 @@
 module.exports = {
   webpack: (config, { dev }) => {
-    const entry = config.entry
-    config.entry = async (...args) => {
-      const result = await entry(...args)
-      result['main.js'] = [
-        'regenerator-runtime/runtime',
-        ...result['main.js']
-      ]
-      return result
-    }
+    const entry = config.entry;
 
-    return config
+    config.entry = () => entry().then(result => {
+        result['main.js'].splice(0, 0, 'babel-polyfill');
+        return result;
+    });
+
+    return config;
   }
 }

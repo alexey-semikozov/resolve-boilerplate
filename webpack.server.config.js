@@ -4,14 +4,14 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = env => {
   return {
     entry: {
-      server: ['regenerator-runtime/runtime', './server/index.js']
+      entry: ['babel-polyfill', './server/index.js'],
     },
     target:'node',
     externals: [nodeExternals()],
     output: {
       publicPath: env ? env.publicPath : '',
       path: `${__dirname}/.next/dist/server`,
-      filename: '[name].js'
+      filename: 'server.js'
     },
     module: {
       rules: [{
@@ -27,10 +27,7 @@ module.exports = env => {
     },
 
     plugins: [
-      new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
-    //   new webpack.optimize.UglifyJsPlugin({
-    //     compress: { warnings: false }, output: { comments: false }
-    //   })
+      new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } })
     ]
   };
 };

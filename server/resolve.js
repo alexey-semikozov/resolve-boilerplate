@@ -10,7 +10,7 @@ import aggregates from '../aggregates';
 import projections from '../projections';
 
 const storage = createStorage({
-  driver: storageDriver({ pathToFile: './db.json' })
+  driver: storageDriver({ pathToFile: process.env.DB || './db.json' })
 });
 
 const bus = createBus({ driver: busDriver() });

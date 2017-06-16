@@ -14,19 +14,6 @@ const TODO_FILTERS = {
   [SHOW_COMPLETED]: todo => todo.completed
 };
 
-function renderToggleAll(completedCount, { todos, actions }) {
-  if (todos.length > 0) {
-    return (
-      <input
-        className="toggle-all"
-        type="checkbox"
-        checked={completedCount === todos.length}
-        onChange={actions.completeAll}
-      />
-    );
-  }
-}
-
 function renderFooter(completedCount, { todos, filter, actions }) {
   const activeCount = todos.length - completedCount;
 
@@ -36,7 +23,6 @@ function renderFooter(completedCount, { todos, filter, actions }) {
         completedCount={completedCount}
         activeCount={activeCount}
         filter={filter}
-        onClearCompleted={actions.clearCompleted}
       />
     );
   }
@@ -52,7 +38,6 @@ function MainSection(props) {
 
   return (
     <section className="main">
-      {renderToggleAll(completedCount, props)}
       <ul className="todo-list">
         {filteredTodos.map(todo => (
           <TodoItem key={todo.aggregateId} todo={todo} {...actions} />

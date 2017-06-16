@@ -13,7 +13,7 @@
     "prestart": "npm run -s build",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "test:unit": "jest",
+    "test": "jest",
     "test:e2e": "node ./testcafe_runner.js"
   },
   "jest": {

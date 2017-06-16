@@ -4,15 +4,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { fork } from 'redux-saga/effects';
 import Immutable from 'seamless-immutable';
-import { saga as resolveSaga } from 'resolve-redux';
-import saga from '../sagas';
-import reducers from '../reducers';
+import { saga as resolveSaga, createReducer } from 'resolve-redux';
+import todosProjection from '../projections/todos';
 
-const rootSaga = function* (args) {
-	yield [
-    fork(resolveSaga, args),
-    fork(saga)
-  ];
+const { name, eventHandlers } = todosProjection;
+const reducers = createReducer({ name, eventHandlers });
+
+const rootSaga = function*(args) {
+  yield [fork(resolveSaga, args)];
 };
 
 const CRITICAL_LEVEL = 100;
@@ -22,12 +21,12 @@ function initSocketIO(store) {
   const socketIO = socketIOClient('/');
   socketIO.on('event', event => store.dispatch(JSON.parse(event)));
   socketIO.on('disconnect', () => {
-    socketIOFailCount++
+    socketIOFailCount++;
     if (socketIOFailCount > CRITICAL_LEVEL) {
-      window.location.reload()
+      window.location.reload();
     }
     initSocketIO(store);
-  })
+  });
 }
 
 export default initialState => {
@@ -56,4 +55,4 @@ export default initialState => {
   }
 
   return store;
-}
+};

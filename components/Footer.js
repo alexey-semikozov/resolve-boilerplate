@@ -37,16 +37,6 @@ function renderFilterLink({ filter, selectedFilter }) {
   );
 }
 
-function renderClearButton({ completedCount, onClearCompleted }) {
-  if (completedCount > 0) {
-    return (
-      <button className="clear-completed" onClick={onClearCompleted}>
-        Clear completed
-      </button>
-    );
-  }
-}
-
 function Footer(props) {
   return (
     <footer className="footer">
@@ -61,10 +51,6 @@ function Footer(props) {
           </li>
         ))}
       </ul>
-      {renderClearButton({
-        onClearCompleted: props.onClearCompleted,
-        completedCount: props.completedCount
-      })}
     </footer>
   );
 }
@@ -72,8 +58,7 @@ function Footer(props) {
 Footer.propTypes = {
   completedCount: PropTypes.number.isRequired,
   activeCount: PropTypes.number.isRequired,
-  filter: PropTypes.string.isRequired,
-  onClearCompleted: PropTypes.func.isRequired
+  filter: PropTypes.string.isRequired
 };
 
 export default Footer;

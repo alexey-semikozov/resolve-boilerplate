@@ -22,9 +22,7 @@ const setup = propOverrides => {
       actions: {
         editTodo: jest.fn(),
         deleteTodo: jest.fn(),
-        completeTodo: jest.fn(),
-        completeAll: jest.fn(),
-        clearCompleted: jest.fn()
+        completeTodo: jest.fn()
       }
     },
     propOverrides
@@ -50,19 +48,5 @@ describe('components', () => {
       const { tree } = setup();
       expect(tree).toMatchSnapshot();
     });
-
-    it('should be checked if all todos completed', () => {
-        const { output } = setup({
-          todos: [
-            {
-              text: 'Use Redux',
-              completed: true,
-              aggregateId: 0
-            }
-          ]
-        });
-        const [toggle] = output.props.children;
-        expect(toggle.props.checked).toBe(true);
-      });
   });
 });

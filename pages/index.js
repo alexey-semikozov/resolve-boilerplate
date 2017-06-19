@@ -2,7 +2,8 @@ import Head from 'next/head';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { createActions } from 'resolve-redux';
+import { createActions, actions } from 'resolve-redux';
+import withRedux from 'next-redux-wrapper';
 import makeStore from '../store';
 import Header from '../components/Header';
 
@@ -13,7 +14,6 @@ import MainSection, {
 } from '../components/MainSection';
 
 import todoAggregate from '../aggregates/todo';
-import nextRedux from '../server/next-redux';
 
 const App = props => {
   const { todos, filter, actions } = props;
@@ -29,11 +29,11 @@ const App = props => {
   );
 };
 
-App.getInitialProps = context => {
-  const initialState = context.req ? context.req.initialState : undefined;
-  return {
-    initialState
-  };
+App.getInitialProps = ({req, store, isServer}) => {
+  if (isServer) {
+    const initialState = req ? req.initialState : undefined;
+    store.dispatch(actions.merge('todos', { 'todos': initialState.todos}));
+  }
 };
 
 App.propTypes = {
@@ -54,4 +54,4 @@ const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(createActions(todoAggregate), dispatch)
 });
 
-export default nextRedux(makeStore, mapStateToProps, mapDispatchToProps)(App);
+export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,12 @@
 import Immutable from 'seamless-immutable';
+import { MERGE } from 'resolve-redux/dist/actions';
 
 export default {
   name: 'todos',
   initialState: Immutable({ todos: [] }),
 
   eventHandlers: {
-    TodoAdded: (state, event) =>
-      state.setIn(
+    TodoAdded: (state, event) => state.setIn(
         ['todos'],
         [
           {
@@ -40,6 +40,12 @@ export default {
               ? { ...todo, completed: !todo.completed }
               : todo)
         )
-      )
+      ),
+      [MERGE]: (state, event) => (state
+        ? state.setIn(
+          ['todos'],
+          state.todos.concat(event.state.todos)
+        )
+        : Immutable(event.state))
   }
 };

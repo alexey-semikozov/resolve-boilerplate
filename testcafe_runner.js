@@ -3,6 +3,7 @@ const yargs = require('yargs');
 const createTestCafe = require('testcafe');
 const { getInstallations } = require('testcafe-browser-tools');
 const fs = require('fs');
+const DELAY = 10000;
 let testcafe = null;
 process.env.DB = './__test_db__.json';
 
@@ -19,7 +20,7 @@ getInstallations()
                 const runner = testcafe.createRunner();
                 const browser = argv.browser || Object.keys(browsers).slice(0,1);
                 return runner
-                    .startApp('npm run dev', 5000)
+                    .startApp('npm run dev', DELAY)
                     .src(['./tests/e2e-tests/index.test.js'])
                     .browsers(browser)
                     .run();
